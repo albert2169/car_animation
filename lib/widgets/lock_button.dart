@@ -10,15 +10,27 @@ class LockButton extends StatefulWidget {
 
 class _LockButtonState extends State<LockButton> {
   bool _isLocked = true;
+  bool _isVisable = false;
 
   void _onLongPress() {
     setState(() {
       _isLocked = !_isLocked;
     });
   }
-
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(milliseconds: 2500), () {
+      setState(() {
+        _isVisable = true;
+      });
+    });
+  }
   @override
   Widget build(BuildContext context) {
+    if (!_isVisable) {
+      return const SizedBox();
+    }
     return GestureDetector(
       onLongPress: () async {
         _onLongPress();
@@ -27,15 +39,14 @@ class _LockButtonState extends State<LockButton> {
       },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 600),
-        padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: _isLocked ? Colors.red.shade400 : Colors.green.shade400,
+          color: Colors.transparent,
           shape: BoxShape.circle,
         ),
         child: Icon(
           _isLocked ? Icons.lock : Icons.lock_open,
           color: Colors.white,
-          size: 32,
+          size: 60,
         ),
       ),
     );

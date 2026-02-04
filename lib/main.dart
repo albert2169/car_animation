@@ -4,7 +4,6 @@ import 'package:rive/rive.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // Call init before using Rive.
   await RiveNative.init();
 
   runApp(const MyApp());
