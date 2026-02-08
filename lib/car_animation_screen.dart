@@ -22,7 +22,7 @@ class _CarAnimationScreenState extends State<CarAnimationScreen> {
   late ViewModelInstanceColor _carColorChangeProperty;
   late ViewModelInstanceColor _tuningColorChangeProperty;
   Color _selectedCarColor = ColorsEnum.color1.display;
-  Color _selectedTuningColor = TuningColorsEnum.color1.display;
+  Color _selectedTuningColor = TuningColorsEnum.color4.display;
   bool _isCarLocked = true;
   bool _isFlashOn = false;
   bool _isleftDoorOpen = false;
